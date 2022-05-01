@@ -1,3 +1,9 @@
-const DRAWER_WIDTH = 240;
+const PATH = {
+    HOME: '/',
+    FIRST_PAGE: '/firstPage',
+    SECOND_PAGE: '/secondPage',
+}
 
-export { DRAWER_WIDTH };
+const DRAWER_WIDTH = 240
+
+export { DRAWER_WIDTH, PATH }

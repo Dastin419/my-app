@@ -1,6 +1,7 @@
-import { styled } from '@mui/material/styles';
-import MuiDrawer from '@mui/material/Drawer';
-import { DRAWER_WIDTH } from '../../utils/constants';
+import { styled } from '@mui/material/styles'
+import MuiDrawer from '@mui/material/Drawer'
+
+import { DRAWER_WIDTH } from '../../utils/constants'
 
 const Drawer = styled(MuiDrawer, {
     shouldForwardProp: (prop) => prop !== 'open',
@@ -26,6 +27,6 @@ const Drawer = styled(MuiDrawer, {
             },
         }),
     },
-}));
+}))
 
-export default Drawer;
+export default Drawer

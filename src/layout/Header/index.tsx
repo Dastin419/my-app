@@ -1,11 +1,12 @@
-import React from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Typography from '@mui/material/Typography';
+import React from 'react'
 
-import { ToggleSidebarProps } from '../types';
-import AppBar from './styles';
+import Toolbar from '@mui/material/Toolbar'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
+import Typography from '@mui/material/Typography'
+
+import { ToggleSidebarProps } from '../types'
+import AppBar from './styles'
 
 const Header = ({ toggleDrawer, isOpen }: ToggleSidebarProps) => {
     return (
@@ -38,7 +39,7 @@ const Header = ({ toggleDrawer, isOpen }: ToggleSidebarProps) => {
                 </Typography>
             </Toolbar>
         </AppBar>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header

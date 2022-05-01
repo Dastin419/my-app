@@ -1,17 +1,23 @@
-import React from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { ToggleSidebarProps } from '../types';
-import Drawer from './styles';
-import { mainOptions } from './options';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemButton from '@mui/material/ListItemButton';
+import React from 'react'
+import { useLocation } from 'react-router-dom'
+
+import Toolbar from '@mui/material/Toolbar'
+import List from '@mui/material/List'
+import Divider from '@mui/material/Divider'
+import IconButton from '@mui/material/IconButton'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemButton from '@mui/material/ListItemButton'
+
+import { ToggleSidebarProps } from '../types'
+import { mainOptions } from './options'
+import Link from '../../components/Link'
+import Drawer from './styles'
 
 const Sidebar = ({ isOpen, toggleDrawer }: ToggleSidebarProps) => {
+    const location = useLocation()
+
     return (
         <Drawer variant="permanent" open={isOpen}>
             <Toolbar
@@ -22,6 +28,7 @@ const Sidebar = ({ isOpen, toggleDrawer }: ToggleSidebarProps) => {
                     px: [1],
                 }}
             >
+                By Dmytro Lazarenko
                 <IconButton onClick={toggleDrawer}>
                     <ChevronLeftIcon />
                 </IconButton>
@@ -29,14 +36,18 @@ const Sidebar = ({ isOpen, toggleDrawer }: ToggleSidebarProps) => {
             <Divider />
             <List component="nav">
                 {mainOptions.map((item) => (
-                    <ListItemButton key={item.id}>
-                        <ListItemIcon>{item.icon}</ListItemIcon>
-                        <ListItemText primary={item.name} />
-                    </ListItemButton>
+                    <Link to={item.path} key={item.id}>
+                        <ListItemButton
+                            selected={location.pathname === item.path}
+                        >
+                            <ListItemIcon>{item.icon}</ListItemIcon>
+                            <ListItemText primary={item.name} />
+                        </ListItemButton>
+                    </Link>
                 ))}
             </List>
         </Drawer>
-    );
-};
+    )
+}
 
-export default Sidebar;
+export default Sidebar
