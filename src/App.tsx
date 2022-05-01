@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+const pages = [
+    {
+        id: 1,
+        name: 'First',
+    },
+    {
+        id: 2,
+        name: 'Second',
+    },
+    {
+        id: 3,
+        name: 'Third',
+    },
+    {
+        id: 4,
+        name: 'Fourth',
+    },
+];
+
+type Page = {
+    id: number;
+    name: string;
+};
+
+const App = () => {
+    const [page, setPage] = useState<Page>(pages[0]);
+    console.log({ page });
+
+    const handleChange = (page: Page) => {
+        setPage(page);
+    };
+
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+        <div>
+            <div>PAGES</div>
+            <div>
+                {pages.map((page) => (
+                    <div onClick={() => handleChange(page)} key={page.id}>
+                        {page.name}
+                    </div>
+                ))}
+            </div>
+            <div>Choose {page.name}</div>
         </div>
     );
-}
+};
 
 export default App;
